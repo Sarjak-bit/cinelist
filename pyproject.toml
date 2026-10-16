@@ -1,0 +1,19 @@
+[project]
+name = "cinelist"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { email = "sarjaksunar@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.143.2",
+]
+
+[project.scripts]
+cinelist = "cinelist:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"

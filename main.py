@@ -22,9 +22,13 @@ movies: list[dict] = [
         "rating": None,
     },
 ]
-@app.get("/movies")
+@app.get("/api/movies", response_model= list[movieView])
+def get_movies():
+    return movies
+
+@app.post("/api/movies", response_model=movieView)
 def create_movies(movie: movieCreate):
-    new_id = max(m["id"] for m in movies) + 1 if movies else id
+    new_id = max(m["id"] for m in movies) + 1 if movies else 1
     
     new_movie = {
         "id": new_id,
@@ -35,3 +39,5 @@ def create_movies(movie: movieCreate):
         "rating": movie.rating 
         
     }
+    movies.append(new_movie)
+    return new_movie

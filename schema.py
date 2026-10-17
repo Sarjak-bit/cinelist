@@ -5,7 +5,7 @@ class movieBase(BaseModel):
     genre: str
     year: int
     status: str
-    rating: int
+    rating: int | None = None
     
 class movieCreate(movieBase):
     pass
